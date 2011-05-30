@@ -102,7 +102,7 @@ class TestTelevisao(unittest.TestCase):
         self.tv = Televisao()
 
     def test_ligar_tv(self):
-        self.tv.ligar()
+        self.tv.ligar_desligar()
         self.tv.status |should| equal_to(True)
 
     def test_trocar_canal_na_faixa(self):
@@ -126,7 +126,8 @@ class TestTelevisao(unittest.TestCase):
         self.tv.volume_atual |should| equal_to(0)
 
     def test_desligar_tv(self):
-        self.tv.desligar()
+        self.tv.status = True
+        self.tv.ligar_desligar()
         self.tv.status |should| equal_to(False)
 
 

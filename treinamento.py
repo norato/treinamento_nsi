@@ -26,7 +26,7 @@ class Quadrado(object):
         self.lado = self.novo_lado
 
     def area(self):
-        return self.lado * self.lado
+        return pow(self.lado, 2) 
 
 
 class Retangulo(object):
@@ -76,6 +76,7 @@ class Pessoa(object):
 
 class Televisao(object):
 
+
     def __init__(self):
         self.status = False
         self.faixa_canal = (2, 50)
@@ -83,8 +84,11 @@ class Televisao(object):
         self.canal_atual = 3
         self.volume_atual = 0
 
-    def ligar(self):
-        self.status = True
+    def ligar_desligar(self):
+        if self.status == False:
+            self.status = True
+        else: self.status = False
+
 
     def trocar_canal(self, canal):
         self.canal = canal
@@ -98,9 +102,6 @@ class Televisao(object):
         elif self.volume > self.faixa_volume[1]:
             self.volume_atual = self.faixa_volume[1]
         else: self.volume_atual = self.faixa_volume[0]
-
-    def desligar(self):
-        self.status = False
 
 
 class Conta(object):
@@ -133,7 +134,7 @@ class Bomba(object):
         if self.quantidade <= self.capacidade:
             self.capacidade -= self.quantidade
             return self.quantidade * self.preco
-        return 'A bomba possui apenas %i litros'%(self.capacidade)
+        return 'A bomba possui apenas %i litros' % (self.capacidade)
 
     def venda_valor(self, valor):
         self.valor = valor
@@ -141,7 +142,7 @@ class Bomba(object):
         if quantidade_vendida < self.capacidade:
             self.capacidade -= quantidade_vendida
             return quantidade_vendida
-        return 'A bomba possui apenas %i litros'%(self.capacidade)
+        return 'A bomba possui apenas %i litros' % (self.capacidade)
 
     def encher(self):
         self.capacidade = self.capacidade_maxima
@@ -225,13 +226,12 @@ class Complexo(object):
 
 class NumeroRacional(object):
 
-
     def __init__(self, numerador, denominador):
         self.numerador = numerador
         self.denominador = denominador
 
     def __repr__(self):
-        return ('%s/%s')%(self.numerador, self.denominador)
+        return ('%s/%s') % (self.numerador, self.denominador)
 
     def __eq__(self, other):
         return self.numerador == other.numerador and self.denominador == other.denominador
@@ -256,11 +256,11 @@ class NumeroRacional(object):
         mul_denominador = (self.denominador * other.numerador)
         return NumeroRacional(mul_numerador, mul_denominador)
 
-    def decimal(self, casa=0):
+    def decimal(self, casa = 0):
         self.casa = casa
         if self.casa == 0:
             return float(self.numerador) / self.denominador
-        return round(float(self.numerador) / self.denominador, self.casa )
+        return round(float(self.numerador) / self.denominador, self.casa)
 
 
 class Numero(object):
@@ -272,40 +272,39 @@ class Numero(object):
         return self.valor % 2 == 0 and 'par' or 'impar'
 
     def romano(self):
-        return Numero((self.valor) / 1000)._convert('M', '', '') + Numero((self.valor % 1000) / 100)._convert( 'C', 'D', 'M') + \
-                Numero((self.valor % 100) /10)._convert( 'X', 'L', 'C') + Numero(self.valor % 10)._convert('I', 'V', 'X')
+        return Numero((self.valor) / 1000)._convert('M', '', '') + Numero((self.valor % 1000) / 100)._convert('C', 'D', 'M') + \
+                Numero((self.valor % 100) /10)._convert('X', 'L', 'C') + Numero(self.valor % 10)._convert('I', 'V', 'X')
 
     def _convert(self, um, cinco, dez):
-        if 1 <= self.valor <= 3: 
+        if 1 <= self.valor <= 3:
             return um * self.valor
-        if self.valor == 4: 
+        if self.valor == 4:
             return um + cinco
-        if 5 <= self.valor <= 8: 
-            return cinco + um * (self.valor - 5)
-        if self.valor == 9: 
+        if 5 <= self.valor <= 8:
+            return cinco + um * (self.valor -5)
+        if self.valor == 9:
             return um + dez
         return ''
 
     def fibonacci(self):
         resposta = []
-        if self.valor in (0,1,2):
+        if self.valor in (0, 1, 2):
             return [1] * self.valor
         resposta = [0, 1]
         for n in range(2, self.valor):
-            resposta.append(resposta[n-1] + resposta[ n-2])
+            resposta.append(resposta[n -1] + resposta[n -2])
         return resposta
 
     def fatorial_loop(self):
         resposta = 1
-        for fator in range(1, self.valor+1):
+        for fator in range(1, self.valor + 1):
             resposta *= fator
         return resposta
 
     def fatorial_recursivo(self):
         if self.valor == 0:
             return 1
-        return self.valor * Numero(self.valor - 1).fatorial_recursivo()
+        return self.valor * Numero(self.valor -1).fatorial_recursivo()
 
     def fatorial_funcional(self):
-        return reduce(lambda x,y: x*y, range(1, self.valor+1) or [1])
-
+        return reduce(lambda x, y: x * y, range(1, self.valor + 1) or [1])
