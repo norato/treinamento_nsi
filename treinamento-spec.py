@@ -3,7 +3,8 @@
 
 import unittest
 from should_dsl import should
-from treinamento import Bola, Quadrado, Retangulo, Pessoa, Televisao, Conta, Bomba, RetanguloCompleto, TrocarCentroRetangulo, Carnivoro, Complexo, NumeroRacional, Numero
+from treinamento import Bola, Quadrado, Retangulo, Pessoa, Televisao, Conta, Bomba, RetanguloCompleto,\
+                        PontoRetangulo, Carnivoro, Complexo, NumeroRacional, Numero
 
 
 class TestBola(unittest.TestCase):
@@ -182,7 +183,7 @@ class TestRetanguloCompleto(unittest.TestCase):
 
     def setUp(self):
         self.retangulo = RetanguloCompleto(10, 12)
-        self.ponto_novo = TrocarCentroRetangulo([3, 8])
+        self.ponto_novo = PontoRetangulo([3, 8])
 
     def test_trocar_centro(self):
         self.retangulo.centro |should| equal_to([5, 6])
@@ -193,7 +194,7 @@ class TestRetanguloCompleto(unittest.TestCase):
         self.retangulo.vertices |should| equal_to(((0, 0), (0, 10), (12, 0), (12, 10)))
 
     def test_consultar_ponto(self):
-        centro = TrocarCentroRetangulo([4, 7])
+        centro = PontoRetangulo([4, 7])
         centro.ponto |should| equal_to([4, 7])
 
     def test_area_retangulo(self):
@@ -204,7 +205,7 @@ class TestRetanguloCompleto(unittest.TestCase):
 
     def test_se_objeto_e_quadrado(self):
         self.retangulo.quadrado() |should| equal_to(False)
-        RetanguloCompleto(10, 10, (0, 0)).quadrado() |should| equal_to(True)
+        RetanguloCompleto(10, 10).quadrado() |should| equal_to(True)
 
 
 class TestCarnivoro(unittest.TestCase):
@@ -239,6 +240,7 @@ class TestCalculadoraComplexos(unittest.TestCase):
 
     def test_retorna_representacao(self):
         repr(self.numero) |should| equal_to('4 + 5j')
+#        repr(Complexo(-3,-5)) |should| equal_to('-3 - 5j')
 
     def test_retornar_parte_real(self):
         self.numero.real |should| equal_to(4)

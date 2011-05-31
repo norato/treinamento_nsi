@@ -154,14 +154,11 @@ class Bomba(object):
 
 class RetanguloCompleto(object):
 
-    def __init__(self, altura, largura, origem = (0, 0)):
+    def __init__(self, altura, largura):
         self.altura = altura
         self.largura = largura
-        self.origem = origem
-        self.centro = [self.altura / 2 + self.origem[1], self.largura / 2 + self.origem[0]]
-        self.vertices = ((self.origem[1], self.origem[0]), (self.origem[1], self.altura + self.origem[0]), \
-                         (self.largura + self.origem[1], self.origem[0]), (self.largura + self.origem[1], self.altura + self.origem[0]))
-
+        self.centro = [self.altura / 2 , self.largura / 2 ]
+        self.vertices = ((0, 0), (0, self.altura ),(self.largura, 0), (self.largura  , self.altura ))
     def area(self):
         return self.altura * self.largura
 
@@ -172,11 +169,10 @@ class RetanguloCompleto(object):
         return self.largura == self.altura and True or False
 
 
-class TrocarCentroRetangulo(object):
+class PontoRetangulo(object):
 
-    def __init__(self, ponto):
+    def __init__(self, ponto, origem = (0,0)):
         self.ponto = ponto
-
 
 class Carnivoro(object):
 
