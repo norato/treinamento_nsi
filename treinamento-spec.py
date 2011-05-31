@@ -3,334 +3,334 @@
 
 import unittest
 from should_dsl import should
-from treinamento import Bola, Quadrado, Retangulo, Pessoa, Televisao, Conta, Bomba, RetanguloCompleto,\
-                        PontoRetangulo, Carnivoro, Complexo, NumeroRacional, Numero
+from treinamento import Ball, Square, Rectangle, Person, Television, Account, GasStation, CartesianRectangle,\
+                        Point, Carnivorous, Complex, RationalNumber, Number
 
 
-class TestBola(unittest.TestCase):
-
-    def setUp(self):
-        self.bola = Bola(5, 'preta')
-
-    def test_conferir_tamanho(self):
-        self.bola.tamanho |should| equal_to(5)
-
-    def test_conferir_cor(self):
-        self.bola.cor |should| equal_to('preta')
-
-    def test_trocar_tamanho(self):
-        self.bola.trocar_tamanho(7)
-        self.bola.tamanho |should| equal_to(7)
-
-    def test_trocar_cor(self):
-        self.bola.trocar_cor('branca')
-        self.bola.cor |should| equal_to('branca')
-
-
-class TestQuadrado(unittest.TestCase):
+class TestBall(unittest.TestCase):
 
     def setUp(self):
-        self.quadrado = Quadrado(5)
+        self.ball = Ball(5, 'black')
 
-    def test_conferir_lado(self):
-        self.quadrado.lado |should| equal_to(5)
+    def it_check_its_its_size(self):
+        self.ball.size |should| equal_to(5)
 
-    def test_conferir_area(self):
-        self.quadrado.area() |should| equal_to(25)
+    def it_check_its_its_collor(self):
+        self.ball.collor |should| equal_to('black')
 
-    def test_trocar_lado(self):
-        self.quadrado.trocar_lado(7)
-        self.quadrado.lado |should| equal_to(7)
+    def it_change_its_size(self):
+        self.ball.change_size(7)
+        self.ball.size |should| equal_to(7)
 
-    def test_conferir_nova_area(self):
-        self.quadrado.trocar_lado(7)
-        self.quadrado.area() |should| equal_to(49)
-
-
-class TestRetangulo(unittest.TestCase):
-
-    def setUp(self):
-        self.retangulo = Retangulo(5, 5)
-
-    def test_conferir_altura(self):
-        self.retangulo.altura |should| equal_to(5)
-
-    def test_conferir_largura(self):
-        self.retangulo.largura |should| equal_to(5)
-
-    def test_conferir_area(self):
-        self.retangulo.area() |should| equal_to(25)
-
-    def test_trocar_altura(self):
-        self.retangulo.trocar_altura(7)
-        self.retangulo.altura |should| equal_to(7)
-
-    def test_trocar_largura(self):
-        self.retangulo.trocar_largura(7)
-        self.retangulo.largura |should| equal_to(7)
-
-    def test_conferir_perimetro(self):
-        self.retangulo.perimetro() |should| equal_to(20)
+    def it_change_its_collor(self):
+        self.ball.change_collor('white')
+        self.ball.collor |should| equal_to('white')
 
 
-class TestPessoa(unittest.TestCase):
+class TestSquare(unittest.TestCase):
 
     def setUp(self):
-        self.pessoa = Pessoa(15, 60, 170)
+        self.square = Square(5)
 
-    def test_pessoa_engordar(self):
-        self.pessoa.engordar(5)
-        self.pessoa.peso |should| equal_to(65)
+    def it_check_its_its_side(self):
+        self.square.side |should| equal_to(5)
 
-    def test_pessoa_emagrecer(self):
-        self.pessoa.emagrecer(2)
-        self.pessoa.peso |should| equal_to(58)
+    def it_check_its_its_area(self):
+        self.square.area() |should| equal_to(25)
 
-    def test_pessoa_envelhecer_4_anos(self):
-        self.pessoa.envelhecer(4)
-        self.pessoa.altura |should| equal_to(176)
-        self.pessoa.idade |should| equal_to(19)
+    def it_change_side(self):
+        self.square.change_side(7)
+        self.square.side |should| equal_to(7)
 
-    def test_pessoa_envelhecer_10_anos(self):
-        self.pessoa.envelhecer(10)
-        self.pessoa.altura |should| equal_to(179)
-        self.pessoa.idade |should| equal_to(25)
+    def it_change_area(self):
+        self.square.change_side(7)
+        self.square.area() |should| equal_to(49)
 
 
-class TestTelevisao(unittest.TestCase):
+class TestRectangle(unittest.TestCase):
 
     def setUp(self):
-        self.tv = Televisao()
+        self.rectangle = Rectangle(5, 5)
 
-    def test_ligar_tv(self):
-        self.tv.ligar_desligar()
+    def it_check_its_height(self):
+        self.rectangle.height |should| equal_to(5)
+
+    def it_check_its_width(self):
+        self.rectangle.width |should| equal_to(5)
+
+    def it_check_its_area(self):
+        self.rectangle.area() |should| equal_to(25)
+
+    def it_change_its_height(self):
+        self.rectangle.change_height(7)
+        self.rectangle.height |should| equal_to(7)
+
+    def it_change_its_width(self):
+        self.rectangle.change_width(7)
+        self.rectangle.width |should| equal_to(7)
+
+    def it_check_its_perimeter(self):
+        self.rectangle.perimeter() |should| equal_to(20)
+
+
+class TestPerson(unittest.TestCase):
+
+    def setUp(self):
+        self.person = Person(15, 60, 170)
+
+    def it_gain_weight(self):
+        self.person.gain_weight(5)
+        self.person.weight |should| equal_to(65)
+
+    def it_lose_weight(self):
+        self.person.lose_weight(2)
+        self.person.weight |should| equal_to(58)
+
+    def it_get_old_6_years_and_check_its_height(self):
+        self.person.get_old(6)
+        self.person.height |should| equal_to(179)
+        self.person.old |should| equal_to(21)
+
+    def it_stop_to_get_height_at_21_years(self):
+        self.person.get_old(10)
+        self.person.height |should| equal_to(179)
+        self.person.old |should| equal_to(25)
+
+
+class TestTelevision(unittest.TestCase):
+
+    def setUp(self):
+        self.tv = Television()
+
+    def it_turn_on_tv(self):
+        self.tv.turn_on_turn_off()
         self.tv.status |should| equal_to(True)
 
-    def test_trocar_canal_na_faixa(self):
-        self.tv.trocar_canal(10)
-        self.tv.canal_atual |should| equal_to(10)
+    def it_change_the_channel(self):
+        self.tv.change_channel(10)
+        self.tv.current_channnel |should| equal_to(10)
 
-    def test_trocar_canal_fora_faixa(self):
-        self.tv.trocar_canal(51)
-        self.tv.canal_atual |should| equal_to(3)
+    def it_check_if_is_channel_out_of_the_range(self):
+        self.tv.change_channel(51)
+        self.tv.current_channnel |should| equal_to(3)
 
-    def test_trocar_volume_na_faixa(self):
-        self.tv.trocar_volume(15)
-        self.tv.volume_atual |should| equal_to(15)
+    def it_change_the_volume(self):
+        self.tv.change_volume(15)
+        self.tv.current_volume |should| equal_to(15)
 
-    def test_trocar_volume_fora_faixa_maximo(self):
-        self.tv.trocar_volume(100)
-        self.tv.volume_atual |should| equal_to(30)
+    def it_chack_if_volume_is_above_of_the_range(self):
+        self.tv.change_volume(100)
+        self.tv.current_volume |should| equal_to(30)
 
-    def test_trocar_volume_fora_faixa_minimo(self):
-        self.tv.trocar_volume(-100)
-        self.tv.volume_atual |should| equal_to(0)
+    def it_chack_if_volume_is_below_of_the_range(self):
+        self.tv.change_volume(-100)
+        self.tv.current_volume |should| equal_to(0)
 
-    def test_desligar_tv(self):
+    def it_turn_off_tv(self):
         self.tv.status = True
-        self.tv.ligar_desligar()
+        self.tv.turn_on_turn_off()
         self.tv.status |should| equal_to(False)
 
 
-class TestConta(unittest.TestCase):
+class TestAccount(unittest.TestCase):
 
     def setUp(self):
-        self.conta = Conta(0, 'xunda', 666)
+        self.account = Account(0, 'xunda', 666)
 
-    def test_relatorio(self):
-        self.conta.relatorio() |should| equal_to((0, 'xunda', 666))
+    def it_show_the_statement_account(self):
+        self.account.statement() |should| equal_to((0, 'xunda', 666))
 
-    def test_deposito(self):
-        self.conta.depositar(100)
-        self.conta.saldo |should| equal_to(766)
+    def it_deposit_100_money_in_account(self):
+        self.account.deposit(100)
+        self.account.balance |should| equal_to(766)
 
-    def test_saque(self):
-        self.conta.saque(1000)
-        self.conta.saldo |should| equal_to(-334)
-
-
-class TestBomba_Combustivel(unittest.TestCase):
-
-    def setUp(self):
-        self.bomba = Bomba(100, 2)
-
-    def test_consulta_quantidade_combustivel(self):
-        self.bomba.capacidade |should| equal_to(100)
-
-    def test_venda_combustivel_por_litro(self):
-        self.bomba.venda_litro(30) |should| equal_to(60)
-        self.bomba.capacidade |should| equal_to(70)
-        self.bomba.venda_litro(80) |should| equal_to('A bomba possui apenas 70 litros')
-        self.bomba.capacidade |should| equal_to(70)
-
-    def test_venda_combustivel_por_valor(self):
-        self.bomba.venda_valor(60) |should| equal_to(30)
-        self.bomba.capacidade |should| equal_to(70)
-        self.bomba.venda_valor(1000) |should| equal_to('A bomba possui apenas 70 litros')
-
-    def test_encher_bomba(self):
-        self.bomba.venda_litro(30)
-        self.bomba.capacidade |should| equal_to(70)
-        self.bomba.encher()
-        self.bomba.capacidade |should| equal_to(100)
-
-    def test_alterar_preco(self):
-        self.bomba.alterar_preco(3)
-        self.bomba.preco |should| equal_to(3)
+    def it_withdraw_1000_money_off_account(self):
+        self.account.withdraw(1000)
+        self.account.balance |should| equal_to(-334)
 
 
-class TestRetanguloCompleto(unittest.TestCase):
+class TestGasStation(unittest.TestCase):
 
     def setUp(self):
-        self.retangulo = RetanguloCompleto(10, 12)
-        self.ponto_novo = PontoRetangulo([3, 8])
+        self.gasstation = GasStation(100, 2)
 
-    def test_trocar_centro(self):
-        self.retangulo.centro |should| equal_to([5, 6])
-        self.retangulo.centro = self.ponto_novo.ponto
-        self.retangulo.centro |should| equal_to([3, 8])
+    def it_verify_the_state_of_the_fuel_pump(self):
+        self.gasstation.current_state |should| equal_to(100)
 
-    def test_verificar_vertices(self):
-        self.retangulo.vertices |should| equal_to(((0, 0), (0, 10), (12, 0), (12, 10)))
+    def it_sell_fuel_by_liter(self):
+        self.gasstation.sell_per_liter(30) |should| equal_to(60)
+        self.gasstation.current_state |should| equal_to(70)
+        self.gasstation.sell_per_liter(80) |should| equal_to('The gasstation only have 70 liters')
+        self.gasstation.current_state |should| equal_to(70)
 
-    def test_consultar_ponto(self):
-        centro = PontoRetangulo([4, 7])
-        centro.ponto |should| equal_to([4, 7])
+    def it_sell_fuel_by_ammount_value(self):
+        self.gasstation.sell_per_value(60) |should| equal_to(30)
+        self.gasstation.current_state |should| equal_to(70)
+        self.gasstation.sell_per_value(1000) |should| equal_to('The gasstation only have 70 liters')
 
-    def test_area_retangulo(self):
-        self.retangulo.area() |should| equal_to(120)
+    def it_supply_gasstation(self):
+        self.gasstation.sell_per_liter(30)
+        self.gasstation.current_state |should| equal_to(70)
+        self.gasstation.supply()
+        self.gasstation.current_state |should| equal_to(100)
 
-    def test_perimetro_quadrado(self):
-        self.retangulo.perimetro() |should| equal_to(44)
-
-    def test_se_objeto_e_quadrado(self):
-        self.retangulo.quadrado() |should| equal_to(False)
-        RetanguloCompleto(10, 10).quadrado() |should| equal_to(True)
-
-
-class TestCarnivoro(unittest.TestCase):
-
-    def setUp(self):
-        self.carnivoro = Carnivoro()
-        menu = ['string', False, Pessoa(22, 70, 168).idade, 10]
-        for comida in menu:
-            self.carnivoro.devorar(comida)
-
-    def test_devorar_tudo_pela_frente(self):
-        self.carnivoro.devorar('string')
-        self.carnivoro.devorar(False)
-        self.carnivoro.devorar(Pessoa(22, 70, 168))
-        self.carnivoro.devorar(10)
-
-    def test_ver_o_que_o_bicho_comeu(self):
-        self.carnivoro.estomago |should| equal_to(['string', False, 22, 10])
-
-    def test_fazer_digestao(self):
-        self.carnivoro.digestao()
-        self.carnivoro.estomago |should| equal_to([False, 22, 10])
-        self.carnivoro.digestao()
-        self.carnivoro.estomago |should| equal_to([22, 10])
+    def it_change_the_price_per_liter(self):
+        self.gasstation.price_per_liter(3)
+        self.gasstation.price |should| equal_to(3)
 
 
-class TestCalculadoraComplexos(unittest.TestCase):
+class TestCartesianRectangle(unittest.TestCase):
 
     def setUp(self):
-        self.numero = Complexo(4, 5)
-        self.numero2 = Complexo(3, 7)
+        self.rectangle = CartesianRectangle(10, 12)
+        self.new_point = Point((3, 8))
 
-    def test_retorna_representacao(self):
-        repr(self.numero) |should| equal_to('4 + 5j')
-#        repr(Complexo(-3,-5)) |should| equal_to('-3 - 5j')
+    def it_change_its_center(self):
+        self.rectangle.center |should| equal_to((5, 6))
+        self.rectangle.center = self.new_point.point
+        self.rectangle.center |should| equal_to((3, 8))
 
-    def test_retornar_parte_real(self):
-        self.numero.real |should| equal_to(4)
+    def it_check_its_vertices(self):
+        self.rectangle.vertices |should| equal_to(((0, 0), (0, 10), (12, 0), (12, 10)))
 
-    def test_retornar_parte_imaginaria(self):
-        self.numero.imaginaria |should| equal_to(5)
+    def it_check_its_point(self):
+        center = Point([4, 7])
+        center.point |should| equal_to([4, 7])
 
-    def test_soma_numeros(self):
-        self.numero + self.numero2 |should| equal_to(Complexo(7, 12))
+    def it_check_its_area(self):
+        self.rectangle.area() |should| equal_to(120)
 
-    def test_subtracao_numeros(self):
-        self.numero - self.numero2 |should| equal_to(Complexo(1, -2))
+    def it_check_its_perimeter(self):
+        self.rectangle.perimeter() |should| equal_to(44)
 
-    def test_multiplicacao_numeros(self):
-        self.numero * self.numero2 |should| equal_to(Complexo(-23, 43))
+    def it_if_object_is_a_square(self):
+        self.rectangle.square() |should| equal_to(False)
+        CartesianRectangle(10, 10).square() |should| equal_to(True)
 
-    def test_divisao_numeros(self):
-        result = self.numero / self.numero2 
+
+class TestCarnivorous(unittest.TestCase):
+
+    def setUp(self):
+        self.carnivorous = Carnivorous()
+        menu = ['string', False, Person(22, 70, 168).old, 10]
+        for food in menu:
+            self.carnivorous.devour(food)
+
+    def it_devouring_everything_in_its_path(self):
+        self.carnivorous.devour('string')
+        self.carnivorous.devour(False)
+        self.carnivorous.devour(Person(22, 70, 168))
+        self.carnivorous.devour(10)
+
+    def it_ascertain_what_the_animal_ate(self):
+        self.carnivorous.stomach |should| equal_to(['string', False, 22, 10])
+
+    def it_do_the_digest(self):
+        self.carnivorous.digest()
+        self.carnivorous.stomach |should| equal_to([False, 22, 10])
+        self.carnivorous.digest()
+        self.carnivorous.stomach |should| equal_to([22, 10])
+
+
+class TestComplexCalculator(unittest.TestCase):
+
+    def setUp(self):
+        self.number = Complex(4, 5)
+        self.number2 = Complex(3, 7)
+
+    def it_returns_the_representation_of_a_complex_number(self):
+        repr(self.number) |should| equal_to('4 + 5j')
+#        repr(Complex(-3,-5)) |should| equal_to('-3 - 5j')
+
+    def it_returns_the_real_part(self):
+        self.number.real |should| equal_to(4)
+
+    def it_returns_the_imaginary_part(self):
+        self.number.imaginary |should| equal_to(5)
+
+    def it_sums_complex_numbers(self):
+        self.number + self.number2 |should| equal_to(Complex(7, 12))
+
+    def it_subtracts_complex_numbers(self):
+        self.number - self.number2 |should| equal_to(Complex(1, -2))
+
+    def test_multiply_complex_numbers(self):
+        self.number * self.number2 |should| equal_to(Complex(-23, 43))
+
+    def test_divides_complex_numbers(self):
+        result = self.number / self.number2 
         result.real |should| close_to(0.810344827586, delta=0.0000001)
-        result.imaginaria |should| close_to(-0.224137931034, delta=0.00000001)
+        result.imaginary |should| close_to(-0.224137931034, delta=0.00000001)
 
 
-class TestCalculadoraRacional(unittest.TestCase):
+class TestRationalCalculator(unittest.TestCase):
 
 
     def setUp(self):
-        self.numero = NumeroRacional(4,5)
-        self.numero2 = NumeroRacional(3,7)
-        self.numero3 = NumeroRacional(1,3)
+        self.number = RationalNumber(4,5)
+        self.number2 = RationalNumber(3,7)
+        self.number3 = RationalNumber(1,3)
 
-    def test_retornar_numerador(self):
-        self.numero.numerador |should| equal_to(4)
+    def it_return_the_numerator(self):
+        self.number.numerator |should| equal_to(4)
 
-    def test_retorna_denominador(self):
-        self.numero.denominador |should| equal_to(5)
+    def it_returns_the_denominator(self):
+        self.number.denominator |should| equal_to(5)
 
-    def test_retornar_repersentacao(self):
-        self.numero.__repr__() |should| equal_to('4/5')
+    def it_returns_the_representation(self):
+        self.number.__repr__() |should| equal_to('4/5')
 
-    def test_retornar_ponto_flutuante(self):
-        self.numero3.decimal() |should| equal_to(0.33333333333333331)
-        self.numero3.decimal(3) |should| equal_to(0.333)
-        self.numero3.decimal(5) |should| equal_to(0.33333)
+    def it_returns_as_floating_point(self):
+        self.number3.decimal() |should| equal_to(0.33333333333333331)
+        self.number3.decimal(3) |should| equal_to(0.333)
+        self.number3.decimal(5) |should| equal_to(0.33333)
 
-    def test_soma_numero_racional(self):
-        self.numero + self.numero2 |should| equal_to(NumeroRacional(43, 35))
+    def test_sum_of_rational_numbers(self):
+        self.number + self.number2 |should| equal_to(RationalNumber(43, 35))
 
-    def test_subtracao_numero_racional(self):
-        self.numero - self.numero2 |should| equal_to(NumeroRacional(13, 35))
+    def test_substract_of_rational_numbers(self):
+        self.number - self.number2 |should| equal_to(RationalNumber(13, 35))
 
-    def test_multiplicacao_numero_racional(self):
-        self.numero * self.numero2 |should| equal_to(NumeroRacional(12, 35))
+    def test_multiply_of_rational_numbers(self):
+        self.number * self.number2 |should| equal_to(RationalNumber(12, 35))
 
-    def test_divisao_numero_racional(self):
-        self.numero / self.numero2 |should| equal_to(NumeroRacional(28, 15))
+    def test_divisio_of_rational_numbers(self):
+        self.number / self.number2 |should| equal_to(RationalNumber(28, 15))
 
 
-class TestRelatorioNumero(unittest.TestCase):
+class TestNumberInformation(unittest.TestCase):
 
     def setUp(self):
-        self.numero = Numero(4)
-        self.numero2 = Numero(10)
-        self.numero3 = Numero(7)
+        self.number = Number(4)
+        self.number2 = Number(10)
+        self.number3 = Number(7)
 
-    def test_se_numero_par(self):
-        self.numero.par_impar() |should| equal_to('par')
-        self.numero2.par_impar() |should| equal_to('par')
-        self.numero3.par_impar() |should| equal_to('impar')
+    def test_if_number_is_even_or_odd(self):
+        self.number.even_odd() |should| equal_to('even')
+        self.number2.even_odd() |should| equal_to('even')
+        self.number3.even_odd() |should| equal_to('odd')
 
-    def test_retornar_em_romanos(self):
-        self.numero.romano() |should| equal_to('IV')
-        self.numero2.romano() |should| equal_to('X')
-        self.numero3.romano() |should| equal_to('VII')
-        Numero(108).romano() |should| equal_to('CVIII')
+    def it_returns_number_in_roman(self):
+        self.number.roman() |should| equal_to('IV')
+        self.number2.roman() |should| equal_to('X')
+        self.number3.roman() |should| equal_to('VII')
+        Number(108).roman() |should| equal_to('CVIII')
 
-    def test_termo_fibonacci(self):
-        self.numero.fibonacci() |should| equal_to([0 ,1 ,1 ,2])
-        self.numero3.fibonacci() |should| equal_to([0, 1, 1, 2, 3, 5, 8])
+    def test_term_fibonacci(self):
+        self.number.fibonacci() |should| equal_to([0 ,1 ,1 ,2])
+        self.number3.fibonacci() |should| equal_to([0, 1, 1, 2, 3, 5, 8])
 
-    def test_fatorial_com_loop(self):
-        self.numero.fatorial_loop() |should| equal_to(24)
-        self.numero3.fatorial_loop() |should| equal_to(5040)
-        Numero(0).fatorial_loop() |should| equal_to(1)
+    def test_looping_factorial(self):
+        self.number.looping_factorial() |should| equal_to(24)
+        self.number3.looping_factorial() |should| equal_to(5040)
+        Number(0).looping_factorial() |should| equal_to(1)
 
-    def test_fatorial_recursivo(self):
-        self.numero.fatorial_recursivo() |should| equal_to(24)
-        self.numero3.fatorial_recursivo() |should| equal_to(5040)
-        Numero(0).fatorial_recursivo() |should| equal_to(1)
+    def test_resursive_factorial(self):
+        self.number.resursive_factorial() |should| equal_to(24)
+        self.number3.resursive_factorial() |should| equal_to(5040)
+        Number(0).resursive_factorial() |should| equal_to(1)
 
-    def test_fatorial_funcional(self):
-        self.numero.fatorial_funcional() |should| equal_to(24)
-        self.numero3.fatorial_funcional() |should| equal_to(5040)
-        Numero(0).fatorial_funcional() |should| equal_to(1)
+    def test_funcional_factorial(self):
+        self.number.funcional_factorial() |should| equal_to(24)
+        self.number3.funcional_factorial() |should| equal_to(5040)
+        Number(0).funcional_factorial() |should| equal_to(1)
